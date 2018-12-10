@@ -1,0 +1,54 @@
+/**app.wxss**/
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+} 
+page {
+  width: 100%;
+  height: 100%;
+}
+
+@font-face {
+  font-family: 'iconfont';  /* project id 956341 */
+  src: url('//at.alicdn.com/t/font_956341_ll96riskiri.eot');
+  src: url('//at.alicdn.com/t/font_956341_ll96riskiri.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_956341_ll96riskiri.woff') format('woff'),
+  url('//at.alicdn.com/t/font_956341_ll96riskiri.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_956341_ll96riskiri.svg#iconfont') format('svg');
+}
+
+.iconfont {
+  font-family:"iconfont" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-luyin:before { content: "\e600"; }
+
+.icon-fabu:before { content: "\e601"; }
+
+.icon-chakan:before { content: "\e602"; }
+
+.icon-bianji:before { content: "\e603"; }
+
+.icon-chehui:before { content: "\e604"; }
+
+.icon-rementuijian:before { content: "\e605"; }
+
+.icon-shoucang:before { content: "\e606"; }
+
+.icon-huidaoshouye:before { content: "\e607"; }
+
+.icon-shoucang1:before { content: "\e608"; }
+
+.icon-bofang:before { content: "\e609"; }
+
+.icon-tianjia:before { content: "\e60a"; }
+
+.icon-zanting:before { content: "\e60b"; }
+
+.icon-wode:before { content: "\e60c"; }

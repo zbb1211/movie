@@ -1,0 +1,19 @@
+{
+  "pages": [
+    "pages/userCenter/index",
+    "pages/home/index",
+    "pages/list/index",
+    "pages/detail/index",
+    "pages/reviewDetail/index",
+    "pages/reviewEdit/index",
+    "pages/reviewLists/index",
+    "pages/reviewPreview/index"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "侃侃电影首页",
+    "navigationBarTextStyle": "black"
+  }
+}

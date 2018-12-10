@@ -1,0 +1,20 @@
+<view class="user">
+    <view class="top-menu">
+        <view class="leftBtn current">已收藏</view>
+        <view class="rightBtn">已发布</view>
+    </view>
+    <view class="content">
+        <view class="item">
+            <image src="{{srcImg}}"></image>
+            <view class="detail">
+                <view class="title">{{list[0].title}}</view>
+                <view class="audio">
+                    <!-- <audio poster="{{poster}}" name="{{name}}" author="{{author}}" src="{{src}}" id="myAudio" controls loop></audio>
+                    <button type="primary" bindtap="audioPlay">播放</button>
+                    <button type="primary" bindtap="audioPause">暂停</button> -->
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="bottom">首页</view>
+</view>

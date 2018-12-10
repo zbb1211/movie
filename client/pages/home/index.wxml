@@ -1,0 +1,13 @@
+
+<view class="home-container">
+    <image src="{{imgSrc}}" class="img"></image>
+    <text class="title">{{title}}</text>
+    <view class="recommend">
+        <image src="{{imgSrc}}" class="photo"></image>
+        <text class="text">{{name}}给你推荐了一部电影</text>
+    </view>
+    <view class="bottom">
+        <view class="leftBtn">热门</view>
+        <view class="leftBtn">我的</view>
+    </view>
+</view>
