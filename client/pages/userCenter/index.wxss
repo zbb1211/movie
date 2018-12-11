@@ -30,3 +30,53 @@
     color: #888;
     background-color: #fff;
 }
+.content {}
+
+.content .item {
+    width: 90%;
+    height: 300rpx;
+    margin: 20rpx auto;
+    border: 1px solid #ddd;
+    display: flex;
+    background-color: #fff;
+}
+.content .item .movie-img {
+    width: 200rpx;
+    height: 300rpx;
+}
+.content .item .detail {
+    flex: 1;
+    box-sizing: border-box;
+    padding: 20rpx;
+}
+.detail .title {
+    font-size: 32rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+}
+.detail .movie-comment {
+    height: 72rpx;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 24rpx;
+    color: #666666;
+    margin: 5rpx 0 15rpx;
+}
+.detail .user-info {
+    width: 100%;
+    height: 80rpx;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 24rpx;
+}
+.detail .user-info .user-img {
+    width: 60rpx;
+    height: 60rpx;
+    border-radius: 50%;
+    margin-right: 20rpx;
+}

@@ -1,0 +1,36 @@
+.hot {
+  width: 100%;
+  height: 100%;
+  background-color: #efefef;
+  overflow: auto;
+}
+.hot .item {
+  width: 90%;
+  height: 300rpx;
+  margin: 20rpx auto;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  display: flex;
+}
+.item .movie-img {
+  width: 200rpx;
+  height: 300rpx;
+}
+.item .detail {
+  flex: 1;
+  padding-left: 20rpx;
+  box-sizing: border-box;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.item .detail .title {
+  margin-bottom: 30rpx;
+  font-weight: 500;
+}
+.item .detail .movie-type {
+  font-size: 24rpx;
+  color: #666;
+}

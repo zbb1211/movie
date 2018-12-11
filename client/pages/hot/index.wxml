@@ -1,0 +1,17 @@
+<view class="hot">
+  <view class="item">
+      <image src="{{imgSrc}}" class="movie-img"></image>
+      <view class="detail">
+          <view class="title">{{title}}</view>
+          <view class="movie-type">类型： 科幻/动作/冒险</view>
+      </view>
+  </view>
+  <view class="item">
+      <image src="{{imgSrc}}" class="movie-img"></image>
+      <view class="detail">
+          <view class="title">{{title}}</view>
+          <view class="movie-type">类型： 科幻/动作/冒险</view>
+      </view>
+  </view>
+</view>
+

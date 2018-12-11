@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/hot/index",
     "pages/userCenter/index",
     "pages/home/index",
     "pages/list/index",

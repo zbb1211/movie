@@ -5,13 +5,28 @@
     </view>
     <view class="content">
         <view class="item">
-            <image src="{{srcImg}}"></image>
+            <image src="{{imgSrc}}" class="movie-img"></image>
             <view class="detail">
                 <view class="title">{{list[0].title}}</view>
-                <view class="audio">
-                    <!-- <audio poster="{{poster}}" name="{{name}}" author="{{author}}" src="{{src}}" id="myAudio" controls loop></audio>
-                    <button type="primary" bindtap="audioPlay">播放</button>
-                    <button type="primary" bindtap="audioPause">暂停</button> -->
+                <!-- <view class="audio">
+                </view> -->
+                <view class="movie-comment">比一个科技领先全世界n年的国家，堪比黑科技般,比一个科技领先全世界n年的国家，比一个科技领先全世界n年的国家，。。。</view>
+                <view class="user-info">
+                    <image src="{{imgSrc}}" class="user-img"></image>
+                    <text class="user-name">黑夜里的光</text>
+                </view>
+            </view>
+        </view>
+        <view class="item">
+            <image src="{{imgSrc}}" class="movie-img"></image>
+            <view class="detail">
+                <view class="title">{{list[0].title}}</view>
+                <!-- <view class="audio">
+                </view> -->
+                <view class="movie-comment">比一个科技领先全世界n年的国家，堪比黑科技般,比一个科技领先全世界n年的国家，比一个科技领先全世界n年的国家，。。。</view>
+                <view class="user-info">
+                    <image src="{{imgSrc}}" class="user-img"></image>
+                    <text class="user-name">黑夜里的光</text>
                 </view>
             </view>
         </view>

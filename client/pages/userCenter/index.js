@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    imgSrc: '/images/p449619623.jpg',
     list: [
       { imgSrc: '/images/p449619623.jpg', title: '复仇者联盟三', src: ''}
     ],
