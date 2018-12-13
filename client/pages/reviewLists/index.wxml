@@ -1,2 +1,12 @@
-<!--client/pages/reviewLists/index.wxml-->
-<text>client/pages/reviewLists/index.wxml</text>
+<view class="review-lists">
+    <view class="inner-wrapper">
+        <view class="movie-comment">
+            <view class="user">
+                <image src="{{imgSrc}}" class="user-img"></image>
+                <text class="username">{{username}}的影评</text>
+            </view>
+            <view class="user-comment">{{comment}}</view>
+        </view>
+        <view class="bottom">回到首页</view>
+    </view>
+</view>

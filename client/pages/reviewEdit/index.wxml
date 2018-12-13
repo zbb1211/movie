@@ -1,2 +1,11 @@
-<!--client/pages/reviewEdit/index.wxml-->
-<text>client/pages/reviewEdit/index.wxml</text>
+<view class="review-edit">
+    <view class="inner-wrapper">
+        <image src="{{imgSrc}}" class="movie-img"></image>
+        <view class="movie-comment">
+            <textarea placeholder="这是一个可以自动聚焦的textarea" auto-focus />
+        </view>
+    </view>
+    <view class="bottom">
+        完成
+    </view>
+</view>

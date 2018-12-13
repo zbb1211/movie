@@ -1,2 +1,11 @@
-<!--client/pages/detail/index.wxml-->
-<text>client/pages/detail/index.wxml</text>
+<view class="movie-detail">
+    <view class="inner-wrapper">
+        <image src="{{imgSrc}}" class="movie-img"></image>
+        <view class="movie-title">{{title}}</view>
+        <view class="movie-comment">{{comment}}</view>
+        <view class="bottom">
+            <view class="left-btn">查看影评</view>
+            <view class="right-btn">添加影评</view>
+        </view>
+    </view>
+</view>

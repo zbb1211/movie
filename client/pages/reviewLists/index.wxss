@@ -1,1 +1,57 @@
-/* client/pages/reviewLists/index.wxss */
+.review-lists {
+    width: 100%;
+    height: 100%;
+    background-color: #efefef;
+    padding-top: 5%;
+    box-sizing: border-box;
+}
+.review-lists .inner-wrapper {
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    position: relative;
+    box-sizing: border-box;
+}
+.inner-wrapper .movie-comment {
+    width: 100%;
+    padding: 5% 10% 5% 10%;
+    font-size: 28rpx;
+    box-sizing: border-box;
+    /* text-align: center; */
+    color: #666;
+    border-bottom: 1px solid #ddd;
+}
+.movie-comment .user {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 20rpx;
+    font-size: 24rpx;
+    color: #6E87A0;
+}
+.user .user-img {
+    width: 60rpx;
+    height: 60rpx;
+    border-radius: 50%;
+    margin-right: 10rpx;
+}
+.user-comment {
+    width: 100%;
+    height: 40rpx;
+    line-height: 40rpx;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.inner-wrapper .bottom {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 80rpx;
+    line-height: 80rpx;
+    text-align: center;
+    color: #6E87A0;
+    font-size: 24rpx;
+    border-top: 1px solid #ddd;
+}

@@ -1,2 +1,17 @@
-<!--client/pages/reviewPreview/index.wxml-->
-<text>client/pages/reviewPreview/index.wxml</text>
+<view class="review-detail">
+    <view class="inner-wrapper">
+        <image src="{{imgSrc}}" class="movie-img"></image>
+        <view class="movie-title">{{title}}</view>
+        <view class="movie-comment">
+            <view class="user">
+                <image src="{{imgSrc}}" class="user-img"></image>
+                <text class="username">{{username}}的影评</text>
+            </view>
+            <view class="user-comment">{{comment}}</view>
+        </view>
+        <view class="bottom">
+            <view class="left-btn">重新编辑</view>
+            <view class="right-btn">发布影评</view>
+        </view>
+    </view>
+</view>
