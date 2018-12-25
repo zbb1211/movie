@@ -1,11 +1,48 @@
 <view class="review-edit">
-    <view class="inner-wrapper">
-        <image src="{{imgSrc}}" class="movie-img"></image>
-        <view class="movie-comment">
-            <textarea placeholder="这是一个可以自动聚焦的textarea" auto-focus />
-        </view>
-    </view>
-    <view class="bottom">
+  <view class="inner-wrapper">
+    <image src="{{data.image}}" class="movie-img"></image>
+    <view class="movie-title">{{data.title}}</view>
+    <!-- <button open-type="openSetting" bindopensetting="callback">打开设置页</button> -->
+    <view wx:if="{{!isCompleted}}" class="wrapper">
+      <view class="movie-comment" wx:if="{{type === 'text'}}">
+        <textarea placeholder="输入你的影评内容" auto-focus maxlength='255' bindinput='handleOnInput'></textarea>
+      </view>
+      <view
+        class="audio-btn"
+        wx:if="{{type === 'audio'&& !audioSrc}}"
+        bindtouchstart="handleStartRecord"
+        bindtouchmove="handleCancelRecord"
+        bindtouchend="handleStopRecord"
+      >{{recordText}}</view>
+      
+      <view class="bottom  {{(type === 'text' && !val) || (type==='audio'&&!audioSrc) ? 'disabled' : ''}}" bindtap="handleCompleted">
         完成
+      </view>
     </view>
+    <view wx:else class="wrapper">
+      <view class="user-info">
+        <image src="{{userInfo.avatarUrl}}" class="user-image"></image>
+        <text>{{userInfo.nickName}}的影评</text>
+      </view>
+      <view class="movie-comment" wx:if="{{type === 'text'}}">{{val}}</view>
+      <view class="audio" wx:if="{{type === 'audio'}}">
+        <image
+          class="play-image" src="{{playing ? './stop.png' : './play.png'}}"
+          bindtap="onPlay"
+          data-url="{{audioSrc}}"
+        ></image>
+        {{time}}s
+      </view>
+      <view class="footer">
+        <view class="footer-left" bindtap="handleEdit">
+          <image src="./cancel.png" class="left-img"></image>
+          重新编辑
+        </view>
+        <view class="footer-right" bindtap="handleCommitComment">
+          <image src="./publish.png" class="right-img"></image>
+          发布影评
+        </view>
+      </view>
+    </view>
+  </view>
 </view>

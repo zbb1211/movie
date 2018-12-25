@@ -1,17 +1,49 @@
 <view class="review-detail">
-    <view class="inner-wrapper">
-        <image src="{{imgSrc}}" class="movie-img"></image>
-        <view class="movie-title">{{title}}</view>
-        <view class="movie-comment">
-            <view class="user">
-                <image src="{{imgSrc}}" class="user-img"></image>
-                <text class="username">{{username}}的影评</text>
-            </view>
-            <view class="user-comment">{{comment}}</view>
-        </view>
-        <view class="bottom">
-            <view class="left-btn">重新编辑</view>
-            <view class="right-btn">发布影评</view>
-        </view>
+  <view class="inner-wrapper">
+    <image src="{{data.image}}" class="movie-img"></image>
+    <view class="movie-title">{{data.title}}</view>
+    <view class="movie-comment">
+      <view class="user" wx:if="{{!isMine}}">
+        <image src="{{data.user_image}}" class="user-img"></image>
+        <text class="username">{{data.user_name}}的影评</text>
+      </view>
+      <view class="user-comment" wx:if="{{data.type === 0}}">{{data.content}}</view>
+      <view class="audio" wx:if="{{data.type === 1}}">
+        <image
+          class="play-image"
+          src="{{playing ? './stop.png' : './play.png'}}"
+          bindtap="onPlay"
+          data-url="{{data.mp3_url}}"
+        ></image>
+        {{data.recording_duration}}s
+      </view>
     </view>
+    <view class="bottom" wx:if="{{!isMine}}">
+      <view class="left-btn" bindtap="handleCollectMovie" wx:if="{{!isCollected}}">
+        <image src="{{uncollectSrc}}" class="left-img"></image>
+        收藏影评
+      </view>
+      <view class="left-btn" bindtap="handleCancleMovie" wx:if="{{isCollected}}">
+        <image src="{{collectSrc}}" class="left-img"></image>
+        取消影评
+      </view>
+      <view class="right-btn" bindtap="showModal" wx:if="{{!isCommented}}">
+        <image src="./edit.png" class="right-img"></image>
+        写影评
+      </view>
+      <view class="right-btn" wx:if="{{isCommented}}" bindtap="handleReviewComment">
+        <image src="./see.png" class="right-img"></image>
+        查看个人影评
+      </view>
+    </view>
+    <view class="bottom back-btn" wx:if="{{isMine}}" bindtap="handleNavigateToReviewList">返回影评列表</view>
+  </view>
+</view>
+<view class="modals modals-bottom-dialog" hidden="{{hideModal}}">
+  <view class="modals-cancel" bindtap="hideModal"></view>
+  <view class="bottom-dialog-body bottom-pos" animation="{{animationData}}">
+    <view class="text" bindtap="handleNavigateToEdit" data-id="{{data.id}}" data-type="text">文字</view>
+    <view class="audio" bindtap="handleNavigateToEdit" data-id="{{data.id}}" data-type="audio">音频</view>
+    <view class="cancel" bindtap="hideModal">取消</view>
+  </view>
 </view>

@@ -1,0 +1,24 @@
+<view class="review-detail">
+  <view class="inner-wrapper">
+    <image src="{{data.image}}" class="movie-img"></image>
+    <view class="movie-title">{{data.title}}</view>
+    <view class="movie-comment">
+      <view class="user">
+        <image src="{{userInfo.avatarUrl}}" class="user-img"></image>
+        <text class="username">{{userInfo.nickName}}的影评</text>
+      </view>
+      <view class="user-comment" wx:if="{{data.type === 0}}">{{data.content}}</view>
+      <view class="audio" wx:if="{{data.type === 1}}">
+        <image
+          class="play-image"
+          src="{{playing ? './stop.png' : './play.png'}}"
+          bindtap="onPlay"
+          data-url="{{data.mp3_url}}"
+        ></image>
+        {{data.recording_duration}}s
+      </view>
+    </view>
+    <view class="bottom back-btn" bindtap="handleNavigateToReviewList">返回影评列表</view>
+  </view>
+</view>
+

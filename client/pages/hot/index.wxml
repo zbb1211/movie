@@ -1,16 +1,9 @@
 <view class="hot">
-  <view class="item">
-      <image src="{{imgSrc}}" class="movie-img"></image>
+  <view class="item" wx:for="{{hotlist}}" wx:key="id" bindtap="handleNavigateToDetail" data-source="{{item}}">
+      <image src="{{item.image}}" class="movie-img"></image>
       <view class="detail">
-          <view class="title">{{title}}</view>
-          <view class="movie-type">类型： 科幻/动作/冒险</view>
-      </view>
-  </view>
-  <view class="item">
-      <image src="{{imgSrc}}" class="movie-img"></image>
-      <view class="detail">
-          <view class="title">{{title}}</view>
-          <view class="movie-type">类型： 科幻/动作/冒险</view>
+          <view class="title">{{item.title}}</view>
+          <view class="movie-type">类型： {{item.category}}</view>
       </view>
   </view>
 </view>

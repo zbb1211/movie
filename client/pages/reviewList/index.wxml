@@ -1,0 +1,29 @@
+<view class="review-lists">
+  <view class="inner-wrapper">
+    <view
+      class="movie-comment"
+      wx:for="{{list}}"
+      wx:key="id"
+      bindtap="handleNavigateToReviewPreview"
+      data-movie-id="{{item.movie_id}}"
+      data-comment-id="{{item.id}}"
+      data-user-id="{{item.user_id}}"
+      wx-if="{{list.length > 0}}"
+    >
+      <view class="user">
+        <image src="{{item.user_image}}" class="user-img"></image>
+        <text class="username">{{item.user_name}}的影评</text>
+      </view>
+      <view class="user-comment" wx:if="{{item.type === 0}}">{{item.content}}</view>
+      <view class="audio" wx:if="{{item.type === 1}}">
+        <image
+          class="play-image"
+          src="{{item.playing ? './stop.png' : './play.png'}}"
+        ></image>
+        {{item.recording_duration}}s
+      </view>
+    </view>
+    <view class="movie-comment" wx-if="{{list.length === 0}}">暂无影评信息</view>
+  </view>
+  <navigator url="/pages/home/index" class="bottom">回到首页</navigator>
+</view>

@@ -1,0 +1,6 @@
+<view class="user">
+  <view class="unlogin-text">未登录</view>
+  <view style='width:100%;padding-left:30rpx;font-size: 30rpx;margin-top:30rpx;'>1、同意当前小程序获取我的微信头像；</view>
+  <view style='width:100%;padding-left:30rpx;font-size: 30rpx;margin-top:30rpx;'>2、同意当前小程序获取我的微信昵称等其他信息；</view>
+  <button class="unlogin-btn" open-type='getUserInfo' bindgetuserinfo='onTapLogin'>微信登录</button>
+</view>

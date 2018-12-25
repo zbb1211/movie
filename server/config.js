@@ -3,13 +3,13 @@ const CONF = {
     rootPathname: '',
 
     // 微信小程序 App ID
-    appId: 'wx8febee6a44ed23a6',
+    appId: '',
 
     // 微信小程序 App Secret
     appSecret: '',
 
     // 是否使用腾讯云代理登录小程序
-    useQcloudLogin: true,
+    useQcloudLogin: false,
 
     /**
      * MySQL 配置，用来存储 session 和用户信息
@@ -21,7 +21,7 @@ const CONF = {
         port: 3306,
         user: 'root',
         db: 'cAuth',
-        pass: 'wx8febee6a44ed23a6',
+        pass: '',
         char: 'utf8mb4'
     },
 
@@ -34,12 +34,16 @@ const CONF = {
         // Bucket 名称
         fileBucket: 'qcloudtest',
         // 文件夹
-        uploadFolder: ''
+        uploadFolder: '',
+        mimetypes: ['audio/x-aac', 'audio/aac', 'audio/mpeg', 'video/webm', 'audio/mp3', 'audio/m4a']
     },
 
     // 微信登录态有效期
     wxLoginExpires: 7200,
-    wxMessageToken: 'abcdefgh'
+    wxMessageToken: 'abcdefgh',
+    qcloudAppId: '',
+    qcloudSecretId: '',
+    qcloudSecretKey: ''
 }
 
 module.exports = CONF

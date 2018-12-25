@@ -1,54 +1,81 @@
-/**app.wxss**/
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-sizing: border-box;
-} 
 page {
+	width: 100%;
+  height:  100%;
+  position: relative;
+}
+
+.userinfo {
+  margin-top: 40rpx;
+  height: 140rpx;
   width: 100%;
-  height: 100%;
+  background: #FFF;
+  border: 1px solid rgba(0, 0, 0, .1);
+  border-left: none;
+  border-right: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  transition: all 300ms ease;
 }
 
-@font-face {
-  font-family: 'iconfont';  /* project id 956341 */
-  src: url('//at.alicdn.com/t/font_956341_ll96riskiri.eot');
-  src: url('//at.alicdn.com/t/font_956341_ll96riskiri.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_956341_ll96riskiri.woff') format('woff'),
-  url('//at.alicdn.com/t/font_956341_ll96riskiri.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_956341_ll96riskiri.svg#iconfont') format('svg');
+.userinfo-avatar {
+  width: 100rpx;
+  height: 100rpx;
+  margin: 20rpx;
+  border-radius: 50%;
 }
 
-.iconfont {
-  font-family:"iconfont" !important;
-  font-size:16px;
-  font-style:normal;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.userinfo-nickname {
+  font-size: 32rpx;
+  color: #007AFF;
+  background-color: white; 
+}
+/*模态框*/
+.modals{
+  position:fixed;
+  z-index: 999;
+  top:0;
+  left: 0;
+  right:0;
+  bottom: 0;
+}
+.modals-cancel{
+  position:absolute;
+  z-index:1000;
+  top:0;
+  left: 0;
+  right:0;
+  bottom: 0;
+  background-color: rgba(0,0,0,.5);
+}
+.bottom-dialog-body{
+  position:absolute;
+  z-index:10001;
+  bottom:0;
+  left:0;
+  right:0;
+  /* height:300rpx; */
+  background-color: #efefef;
 }
 
-.icon-luyin:before { content: "\e600"; }
-
-.icon-fabu:before { content: "\e601"; }
-
-.icon-chakan:before { content: "\e602"; }
-
-.icon-bianji:before { content: "\e603"; }
-
-.icon-chehui:before { content: "\e604"; }
-
-.icon-rementuijian:before { content: "\e605"; }
-
-.icon-shoucang:before { content: "\e606"; }
-
-.icon-huidaoshouye:before { content: "\e607"; }
-
-.icon-shoucang1:before { content: "\e608"; }
-
-.icon-bofang:before { content: "\e609"; }
-
-.icon-tianjia:before { content: "\e60a"; }
-
-.icon-zanting:before { content: "\e60b"; }
-
-.icon-wode:before { content: "\e60c"; }
+/*动画前初始位置*/
+.bottom-pos{
+  -webkit-transform:translateY(100%);
+  transform:translateY(100%);
+}
+.bottom-dialog-body .text,
+.bottom-dialog-body .audio,
+.bottom-dialog-body .cancel {
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  font-size: 32rpx;
+  background-color: #fff;
+}
+.bottom-dialog-body .cancel {
+  margin-top: 40rpx;
+}
+.bottom-dialog-body .audio {
+  border-top: 1px solid #ddd;
+}

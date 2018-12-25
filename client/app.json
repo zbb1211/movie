@@ -1,20 +1,20 @@
 {
   "pages": [
-    "pages/reviewEdit/index",
-    "pages/reviewPreview/index",
-    "pages/reviewLists/index",
-    "pages/reviewDetail/index",
-    "pages/detail/index",
-    "pages/hot/index",
-    "pages/userCenter/index",
     "pages/home/index",
-    "pages/list/index"
+    "pages/reviewEdit/index",
+    "pages/reviewList/index",
+    "pages/reviewPreview/index",
+    "pages/detail/index",
+    "pages/userCenter/index",
+    "pages/hot/index",
+    "pages/login/index",
+    "pages/myPreview/index"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "侃侃电影首页",
+    "navigationBarTitleText": "侃侃电影",
     "navigationBarTextStyle": "black"
   }
 }

@@ -1,54 +1,194 @@
-// client/pages/userCenter/index.js
+var qcloud = require('../../vendor/wafer2-client-sdk/index')
+var config = require('../../config')
+const app = getApp()
+const innerAudioContext = wx.createInnerAudioContext()
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    imgSrc: '/images/p449619623.jpg',
-    list: [
-      { imgSrc: '/images/p449619623.jpg', title: '复仇者联盟三', src: ''}
-    ],
-    poster: 'http://y.gtimg.cn/music/photo_new/T002R300x300M000003rsKF44GyaSk.jpg?max_age=2592000',
-    name: '此时此刻',
-    author: '许巍',
-    src: 'http://ws.stream.qqmusic.qq.com/M500001VfvsJ21xFqb.mp3?guid=ffffffff82def4af4b12b3cd9337d5e7&uin=346897220&vkey=6292F51E1E384E06DCBDC9AB7C49FD713D632D313AC4858BACB8DDD29067D3C601481D36E62053BF8DFEAF74C0A5CCFADD6471160CAF3E6A&fromtag=46',
+    isCurrent: '0',
+    userInfo: app.globalData.userInfo,
+    collectList: [],
+    publishList: [],
+    isCollected: true,
+    isPublished: false,
+    playing: false,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+  },
 
+  getInitData(id) {
+    wx.showLoading({
+      title: '数据加载中'
+    })
+    qcloud.request({
+      url: config.service.getUserPreviewList,
+      data: {
+        userId: id
+      },
+      login: true,
+      success: res => {
+        const result = res.data
+        wx.hideLoading()
+        if (result.code === 0) {
+          this.setData({
+            collectList: result.data
+          })
+        } else {
+          wx.showToast({
+            icon: 'none',
+            title: '获取数据失败'
+          })
+        }
+      },
+      fail: error => {
+        wx.hideLoading()
+        wx.showToast({
+          icon: 'none',
+          title: '获取数据失败'
+        })
+      },
+      complete: () => {
+        wx.hideLoading()
+      }
+    })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    // this.audioCtx = wx.createInnerAudioContext('myAudio')
-    const innerAudioContext = wx.createInnerAudioContext()
-    innerAudioContext.autoplay = true
-    innerAudioContext.src = 'http://ws.stream.qqmusic.qq.com/M500001VfvsJ21xFqb.mp3?guid=ffffffff82def4af4b12b3cd9337d5e7&uin=346897220&vkey=6292F51E1E384E061FF02C31F716658E5C81F5594D561F2E88B854E81CAAB7806D5E4F103E55D33C16F3FAC506D1AB172DE8600B37E43FAD&fromtag=46'
-    innerAudioContext.onPlay(() => {
-      console.log('开始播放')
-    })
-    innerAudioContext.onError((res) => {
-      console.log(res.errMsg)
-      console.log(res.errCode)
-    })
+
   },
-  audioPlay: function () {
-    this.audioCtx.play()
-  },
-  audioPause: function () {
-    this.audioCtx.pause()
-  },
+
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow() {
+    const _this = this
+    app.checkSession({
+      success: ({ userInfo }) => {
+        console.log('success', userInfo)
+        this.setData({
+          userInfo
+        }, () => {
+          _this.getInitData(userInfo.openId)
+        })
+      },
+      error: () => {
+        wx.navigateTo({
+          url: '/pages/login/index'
+        })
+      }
+    })
+  },
 
+  onPlay: function(event) {
+    const { collectList, publishList } = this.data
+    const type = event.currentTarget.dataset.type
+    if (type === 'publish') {
+      this.handlePlay(event, publishList)
+    } else if (type === 'collect') {
+      this.handlePlay(event, collectList)
+    }
+  },
+
+  handlePlay(event, array) {
+    const index = event.currentTarget.dataset.index
+    const src = event.currentTarget.dataset.url
+    const type = event.currentTarget.dataset.type
+    let playing = array[index].playing
+    if (!playing) {
+      // 如果列表中之前有播放状态，则需要置为false,只让当前点击的playing状态为true
+      array.forEach(item => {
+        if (item.playing) {
+          item.playing = false
+        }
+      })
+      array[index].playing = true
+      const key = type === 'publish' ? 'publishList' : 'collectList'
+      this.setData({
+        [key]: array
+      })
+      innerAudioContext.stop()
+      innerAudioContext.src = src
+      innerAudioContext.play()
+    } else {
+      array[index].playing = false
+      this.setData({
+        [key]: array
+      })
+      innerAudioContext.stop()
+    }
+  },
+
+  // 切换收藏和发布状态
+  handleChange(event) {
+    const isCurrent = event.currentTarget.dataset.type
+    const { publishList, collectList } = this.data
+    // 切换页面时清空播放状态
+    publishList.forEach(item => {
+      if (item.playing) {
+        item.playing = false
+      }
+    })
+    collectList.forEach(item => {
+      if (item.playing) {
+        item.playing = false
+      }
+    })
+    innerAudioContext.stop()
+    this.setData({
+      isCurrent,
+      isCollected: isCurrent === '0',
+      isPublished: isCurrent === '1',
+      collectList,
+      publishList
+    }, () => {
+      if (publishList.length > 0) return
+      this.getPublishData()
+    })
+  },
+
+  getPublishData() {
+    const { userInfo } = this.data
+    wx.showLoading({
+      title: '数据加载中'
+    })
+    qcloud.request({
+      url: config.service.getPublistList,
+      data: {
+        userId: userInfo.openId
+      },
+      login: true,
+      success: res => {
+        wx.hideLoading()
+        const result = res.data;
+        if (result.code === 0) {
+          this.setData({
+            publishList: result.data
+          })
+        } else {
+          wx.showToast({
+            title: '获取数据失败'
+          })
+        }
+      },
+      fail: (err) => {
+        console.log(err)
+        wx.hideLoading()
+        wx.showToast({
+          title: '获取数据失败'
+        })
+      }
+    })
   },
 
   /**

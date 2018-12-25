@@ -31,5 +31,37 @@ router.post('/tunnel', controllers.tunnel.post)
 router.get('/message', controllers.message.get)
 // POST 用来处理微信转发过来的客服消息
 router.post('/message', controllers.message.post)
+// get 热门电影列表
+router.get('/hotList', controllers.movies.hotList)
+
+// get 首页
+router.get('/home', controllers.movies.homeData)
+
+// 添加评论
+router.post('/addComment', validationMiddleware, controllers.movies.addComment)
+
+// 获取评论列表
+router.get('/getCommentList', controllers.movies.getCommentList)
+
+// 获取影评详情
+router.get('/getCommentDetail', controllers.movies.getCommentDetail)
+
+// 收藏影评
+router.post('/addCollectMovie', controllers.movies.addCollectMovie)
+
+// 取消收藏
+router.post('/cancelCollectMovie', controllers.movies.cancelCollectMovie)
+
+// 查看个人单个电影影评详情页
+router.get('/getUserPreview', validationMiddleware, controllers.movies.getUserPreview)
+
+// 查看个人收藏的电影影评
+router.get('/getUserPreviewList', validationMiddleware, controllers.movies.getUserPreviewList)
+
+// 查看个人发布列表
+router.get('/getPublistList', controllers.movies.getPublistList)
+
+// 查看用户是否已经评价该条电影
+router.get('/getUserComment', controllers.movies.getUserComment)
 
 module.exports = router

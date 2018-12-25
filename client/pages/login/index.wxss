@@ -1,0 +1,12 @@
+.unlogin-text {
+  width: 100%;
+  padding: 100rpx;
+  box-sizing: border-box;
+  font-size: 40rpx;
+  text-align: center;
+  font-size: 28rpx;
+}
+.unlogin-btn {
+  width: 50%;
+  margin-top: 80rpx;
+}

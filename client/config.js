@@ -3,7 +3,7 @@
  */
 
 // 此处主机域名修改成腾讯云解决方案分配的域名
-var host = 'https://123456.qcloud.la';
+var host = '';
 
 var config = {
 
@@ -21,7 +21,40 @@ var config = {
         tunnelUrl: `${host}/weapp/tunnel`,
 
         // 上传图片接口
-        uploadUrl: `${host}/weapp/upload`
+        uploadUrl: `${host}/weapp/upload`,
+
+        // 热门列表
+        hotList: `${host}/weapp/hotList`,
+
+        // 首页
+        home: `${host}/weapp/home`,
+
+        // 添加评论
+        addComment: `${host}/weapp/addComment`,
+
+        // 获取影评列表
+        getCommentList: `${host}/weapp/getCommentList`,
+
+        // 影评详情
+        getCommentDetail: `${host}/weapp/getCommentDetail`,
+
+        // 收藏影评
+        addCollectMovie: `${host}/weapp/addCollectMovie`,
+
+        // 取消收藏
+        cancelCollectMovie: `${host}/weapp/cancelCollectMovie`,
+
+        // 单个电影影评详情
+        getUserPreview: `${host}/weapp/getUserPreview`,
+
+        // 个人发布影评列表
+        getUserPreviewList: `${host}/weapp/getUserPreviewList`,
+
+        // 个人发布列表
+        getPublistList: `${host}/weapp/getPublistList`,
+
+        // 个人是否评价过一个电影
+        getUserComment: `${host}/weapp/getUserComment`
     }
 };
 

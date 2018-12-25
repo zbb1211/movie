@@ -34,7 +34,7 @@
     margin-right: 10rpx;
 }
 .recommend .text {
-    font-size: 24rpx;
+    font-size: 28rpx;
 }
 .bottom {
     position: fixed;
@@ -50,5 +50,14 @@
     height: 80rpx;
     line-height: 80rpx;
     color: #888;
-    font-size: 24rpx;
+    font-size: 28rpx;
+}
+.bottom .leftBtn {
+    border-right: 1rpx solid #ddd;
+}
+.hot-img, .user-img {
+    width: 40rpx;
+    height: 40rpx;
+    margin-right: 20rpx;
+    vertical-align: text-bottom;
 }
